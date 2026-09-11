@@ -1,0 +1,13 @@
+{
+    "product":  "BU1ST Mail",
+    "version":  "0.1.2",
+    "channel":  "pilot",
+    "windows":  {
+                    "url":  "https://github.com/GringoLocoAtua/BU1ST-Mail-Releases/releases/latest/download/BU1ST-Mail-Windows.exe",
+                    "sha256":  "0e94deaccc44fa5b4ed888c4653ea0fa91c8160cdbb9731ef3b9c9f34c48606f"
+                },
+    "macos":  {
+                  "url":  "https://github.com/GringoLocoAtua/BU1ST-Mail-Releases/releases/latest/download/BU1ST-Mail-macOS.dmg",
+                  "sha256":  "f95e37cc4a4093e9ac93f7ba997e69f6f3e7565119d4bc8d5449803e09e59ea6"
+              }
+}

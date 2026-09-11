@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#05080c">
+
+<title>BU1ST Mail — Download</title>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+background:#05080c;
+color:#f5f7fa;
+font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+body:before{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+opacity:.13;
+background-image:
+linear-gradient(rgba(72,145,220,.18) 1px,transparent 1px),
+linear-gradient(90deg,rgba(72,145,220,.18) 1px,transparent 1px);
+background-size:55px 55px;
+mask-image:linear-gradient(to bottom,black,transparent 80%);
+}
+.wrap{
+width:min(1180px,calc(100% - 40px));
+margin:auto;
+}
+header{
+height:76px;
+border-bottom:1px solid #15202b;
+display:flex;
+align-items:center;
+background:rgba(5,8,12,.92);
+backdrop-filter:blur(16px);
+}
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+.brand{
+font-weight:900;
+font-size:21px;
+letter-spacing:-1px;
+}
+.brand small{
+font-size:9px;
+letter-spacing:3px;
+color:#7f8a99;
+margin-left:8px;
+}
+.status{
+font:10px monospace;
+letter-spacing:2px;
+color:#9aa7b7;
+}
+.status:before{
+content:"";
+display:inline-block;
+width:7px;
+height:7px;
+border-radius:50%;
+background:#54e6a4;
+box-shadow:0 0 15px #54e6a4;
+margin-right:9px;
+}
+.hero{
+padding:105px 0 65px;
+}
+.eyebrow{
+font:700 10px monospace;
+letter-spacing:2px;
+color:#72bbff;
+}
+h1{
+font-size:clamp(52px,7vw,92px);
+line-height:.95;
+letter-spacing:-5px;
+margin:20px 0 28px;
+max-width:900px;
+}
+.hero p{
+font-size:18px;
+line-height:1.7;
+color:#9aa7b7;
+max-width:760px;
+}
+.hero strong{color:white}
+.installers{
+padding:55px 0 100px;
+}
+.heading{
+display:flex;
+justify-content:space-between;
+align-items:end;
+gap:25px;
+margin-bottom:35px;
+}
+.heading h2{
+font-size:48px;
+letter-spacing:-2.5px;
+margin:12px 0 0;
+}
+.detect{
+max-width:340px;
+color:#97a4b4;
+line-height:1.5;
+}
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+}
+.card{
+position:relative;
+padding:34px;
+min-height:505px;
+border:1px solid #293746;
+background:
+radial-gradient(circle at 88% 9%,rgba(41,129,225,.19),transparent 38%),
+linear-gradient(145deg,#0e141d,#070b10);
+transition:.2s ease;
+}
+.card:hover{
+transform:translateY(-3px);
+border-color:#59adff;
+}
+.card.recommended{
+border-color:#59adff;
+box-shadow:0 0 45px rgba(53,145,230,.10);
+}
+.label{
+font:700 10px monospace;
+color:#96a3b2;
+letter-spacing:1px;
+}
+.rec{
+position:absolute;
+right:28px;
+top:29px;
+font:700 9px monospace;
+letter-spacing:1.2px;
+color:#72bbff;
+}
+.icon{
+font-size:72px;
+margin:45px 0 24px;
+line-height:1;
+}
+.card h3{
+font-size:29px;
+letter-spacing:-1.2px;
+margin:0 0 16px;
+}
+.desc{
+font-size:16px;
+line-height:1.6;
+color:#9ba7b7;
+min-height:58px;
+}
+.badges{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+margin:25px 0 40px;
+}
+.badge{
+border:1px solid #293746;
+padding:9px 11px;
+font:700 10px monospace;
+color:#a2afbf;
+}
+.download{
+display:flex;
+align-items:center;
+justify-content:space-between;
+border-top:1px solid #2a3847;
+border-bottom:1px solid #2a3847;
+padding:21px 0;
+font-weight:800;
+color:white;
+text-decoration:none;
+}
+.download:hover{
+color:#72bbff;
+}
+.arrow{
+color:#72bbff;
+font-size:21px;
+}
+.meta{
+margin-top:15px;
+font:10px monospace;
+color:#586676;
+}
+.pilot{
+display:grid;
+grid-template-columns:165px 1fr;
+gap:25px;
+padding:21px;
+margin-top:18px;
+border:1px solid #202e3c;
+background:#08101a;
+color:#8f9bac;
+line-height:1.5;
+}
+.pilot strong{
+font:700 11px monospace;
+letter-spacing:1px;
+color:#72bbff;
+}
+.features{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:1px;
+border:1px solid #1c2834;
+background:#1c2834;
+margin-top:90px;
+}
+.feature{
+background:#070b10;
+padding:29px;
+}
+.feature b{
+display:block;
+font-size:18px;
+margin-bottom:10px;
+}
+.feature p{
+margin:0;
+font-size:14px;
+color:#8794a4;
+line-height:1.6;
+}
+footer{
+border-top:1px solid #17212b;
+padding:35px 0 60px;
+font-size:12px;
+color:#667382;
+}
+footer strong{color:#bac3cf}
+@media(max-width:800px){
+.grid,.features{grid-template-columns:1fr}
+.heading{display:block}
+.detect{margin-top:20px}
+h1{letter-spacing:-3px}
+.pilot{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="wrap nav">
+
+<div class="brand">
+BU1ST <small>TECHNOLOGIES</small>
+</div>
+
+<div class="status">
+PILOT RELEASE
+</div>
+
+</div>
+</header>
+
+<section class="hero">
+<div class="wrap">
+
+<div class="eyebrow">
+01 / BU1ST MAIL
+</div>
+
+<h1>
+Your inbox.<br>
+Your intelligence.
+</h1>
+
+<p>
+<strong>BU1ST Mail</strong> combines modern email with
+<strong>Tadow AI</strong> running locally on your computer.
+Connect your inbox, search intelligently, summarise conversations,
+draft replies and automate repetitive email work.
+</p>
+
+</div>
+</section>
+
+<section class="installers">
+<div class="wrap">
+
+<div class="heading">
+
+<div>
+<div class="eyebrow">
+02 / INSTALLERS
+</div>
+
+<h2>
+Choose your platform.
+</h2>
+</div>
+
+<div class="detect" id="detect">
+Choose the installer for your computer.
+</div>
+
+</div>
+
+<div class="grid">
+
+<div class="card" id="windowsCard">
+
+<div class="label">
+01 &nbsp; WINDOWS
+</div>
+
+<div class="rec" id="windowsRec"></div>
+
+<div class="icon">⊞</div>
+
+<h3>BU1ST Mail for Windows</h3>
+
+<div class="desc">
+64-bit Windows installer with Tadow local-AI bootstrap
+and automatic model selection.
+</div>
+
+<div class="badges">
+<div class="badge">Windows 10 / 11</div>
+<div class="badge">x64</div>
+<div class="badge">Ollama auto-setup</div>
+</div>
+
+<a class="download" href="https://github.com/GringoLocoAtua/BU1ST-Mail-Releases/releases/latest/download/BU1ST-Mail-Windows.exe">
+<span>Download for Windows</span>
+<span class="arrow">↓</span>
+</a>
+
+<div class="meta">
+BU1ST Mail v0.1.2 · Pilot
+</div>
+
+</div>
+
+<div class="card" id="macCard">
+
+<div class="label">
+02 &nbsp; macOS
+</div>
+
+<div class="rec" id="macRec"></div>
+
+<div class="icon">⌘</div>
+
+<h3>BU1ST Mail for macOS</h3>
+
+<div class="desc">
+Universal DMG for Apple Silicon and Intel Macs,
+with first-launch Tadow provisioning.
+</div>
+
+<div class="badges">
+<div class="badge">macOS 14+</div>
+<div class="badge">Apple Silicon + Intel</div>
+<div class="badge">Universal DMG</div>
+</div>
+
+<a class="download" href="https://github.com/GringoLocoAtua/BU1ST-Mail-Releases/releases/latest/download/BU1ST-Mail-macOS.dmg">
+<span>Download for macOS</span>
+<span class="arrow">↓</span>
+</a>
+
+<div class="meta">
+BU1ST Mail v0.1.2 · Universal Mac build
+</div>
+
+</div>
+
+</div>
+
+<div class="pilot">
+
+<strong>
+PILOT / 0.1.2
+</strong>
+
+<div>
+Controlled testing release.
+Public signing, Apple notarisation and production OAuth approval
+are being completed before general commercial release.
+</div>
+
+</div>
+
+<div class="features">
+
+<div class="feature">
+<b>Tadow AI</b>
+<p>
+Local intelligence integrated directly into your email workflow.
+</p>
+</div>
+
+<div class="feature">
+<b>Hardware aware</b>
+<p>
+Automatically selects an appropriate local AI model for your computer.
+</p>
+</div>
+
+<div class="feature">
+<b>Powered by BU1ST</b>
+<p>
+Tadow AI and BU1ST Mail are built and integrated by BU1ST Technologies.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+<strong>BU1ST Technologies</strong>
+· Sovereign AI & Technology Systems
+</div>
+</footer>
+
+<script>
+const ua = navigator.userAgent.toLowerCase();
+
+const windows = ua.includes("windows");
+const mac =
+ua.includes("macintosh") ||
+ua.includes("mac os");
+
+const detect =
+document.getElementById("detect");
+
+if(windows){
+
+document
+.getElementById("windowsCard")
+.classList.add("recommended");
+
+document
+.getElementById("windowsRec")
+.textContent =
+"RECOMMENDED FOR THIS DEVICE";
+
+detect.textContent =
+"Windows detected — we've highlighted the correct installer.";
+
+}
+
+else if(mac){
+
+document
+.getElementById("macCard")
+.classList.add("recommended");
+
+document
+.getElementById("macRec")
+.textContent =
+"RECOMMENDED FOR THIS DEVICE";
+
+detect.textContent =
+"macOS detected — we've highlighted the correct installer.";
+
+}
+</script>
+
+</body>
+</html>
